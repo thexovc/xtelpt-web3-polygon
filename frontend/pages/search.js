@@ -15,21 +15,15 @@ const NewModal = () => {
   const router = useRouter()
   const text = router.query.text
   const type = router.query.type
-
   const [search, setSearch] = useState()
-
   const { xtelptAddress, me } = useContext(XContext)
-
   const updateUIValues = async () => {
     if (type == "Host") {
       const provider = new ethers.providers.Web3Provider(window.ethereum)
       const xtelptContract = new ethers.Contract(xtelptAddress, abi, provider)
-
       const allHost = await xtelptContract.getAllAccount()
       console.log(allHost)
-
       let arr = []
-
       for (let i = 0; i < allHost.length; i++) {
         let prof = await xtelptContract.getProfile(allHost[i])
         console.log(prof.name.toLowerCase() == text.toLowerCase())
@@ -37,48 +31,34 @@ const NewModal = () => {
           arr.push(prof)
         }
       }
-
       console.log("arr", arr)
-
       setSearch(arr)
     }
-
     if (type == "Camp") {
       const provider = new ethers.providers.Web3Provider(window.ethereum)
       const xtelptContract = new ethers.Contract(xtelptAddress, abi, provider)
-
       const allCamp = await xtelptContract.getCampaign()
       // console.log(allCamp)
-
       let arr = []
-
       for (let i = 0; i < allCamp.length; i++) {
-
         if (allCamp[i].name.toLowerCase() == text.toLowerCase()) {
           arr.push(allCamp[i])
         }
       }
-
       // console.log("arr", arr)
-
       setSearch(arr)
       console.log("search", search)
     }
   }
-
-
   useEffect(() => {
     setTimeout(() => {
       updateUIValues()
     }, 1000);
   }, [type, text])
-
-
   const handleVolun = async (id) => {
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     const signer = provider.getSigner();
     const xtelptContract = new ethers.Contract(xtelptAddress, abi, signer)
-
     try {
       const joinCampaign = await xtelptContract.joinCampaign(id)
       console.log(joinCampaign)
@@ -86,27 +66,22 @@ const NewModal = () => {
       console.log(error)
     }
   }
-
   const handleHelp = async (id) => {
     setLoading(true)
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     const signer = provider.getSigner();
     const xtelptContract = new ethers.Contract(xtelptAddress, abi, signer)
-
     try {
       const getHelp = await xtelptContract.getHelp(id)
       console.log(getHelp)
-
       router.push({
         pathname: '/call',
         query: { addr: me?.addr },
       })
-
     } catch (error) {
       console.log(error)
     }
   }
-
   return (
     <div className={styles.container}>
       <Head>
@@ -116,10 +91,8 @@ const NewModal = () => {
       </Head>
       <div className='bg-[#252525] h-screen w-full flex-1'>
         <Header />
-
         <div className="flex justify-center flex-col items-center gap-5 mt-10">
           <h1 className='text-2xl text-center text-white font-bold mb-10'>Search Result For {router.query.text}</h1>
-
           {search?.map((item) => (
             <div key={`${item?.addr}`} className='flex justify-center pb-10 w-full '>
               <div className='bg-[#2D1300] w-1/2 h-full shadow-[0_6px_10px_4px_rgba(0,0,0,0.5)] rounded-[30px] '>
@@ -162,25 +135,18 @@ const NewModal = () => {
             </div>
           ))}
           {search?.length == 0 && (
-
             <div className='flex justify-center pb-10 w-full '>
               <div className='bg-[#2D1300] w-1/2 h-full shadow-[0_6px_10px_4px_rgba(0,0,0,0.5)] rounded-[30px] '>
-                <div className='flex justify-center p-6 '>
-
-                  <div className='justify-center items-center'><p className='justify-center text-center items-center text-2xl  text-white'>No Result Found</p></div>
+                <div className='flex justify-between p-6 '>
+                  <div className='justify-center items-center'><p className='justify-center text-center items-center text-2xl  text-white'>Nothing to Show Here</p></div>
                   <div className=' items-center pr-7 justify-end'>
-
                   </div></div>
               </div>
             </div>
           )}
-
         </div>
-
       </div>
     </div >
-
   );
 }
-
 export default NewModal

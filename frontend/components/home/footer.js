@@ -9,15 +9,12 @@ const Footer = () => {
       <div className='flex justify-between'>
         <div className='bg-[#755204] h-[332px] w-1/2 px-[60px] text-center flex-1 font-noto text-white'>
           <div className='mt-[37px] text-[30px]'>WHAT IS BLOCKCHAIN?</div>
-          <div className='mt-[22px] text-[20px]'>A blockchain is a type of distributed ledger technology that consists of growing list of records, called blocks, that are securely linked together using cryptography. Each block contains a cryptographic hash of the previous block, a timestamp, and transaction data</div>
+          <div className='mt-[22px] text-[18px]'>A blockchain is a type of distributed ledger technology that consists of growing list of records, called blocks, that are securely linked together using cryptography. Each block contains a cryptographic hash of the previous block, a timestamp, and transaction data</div>
         </div>
         <div className='bg-[#A77300] self-center w-[10px]'></div>
         <div className='bg-[#755204] h-[332px] w-1/2 px-[60px] text-center font-noto text-white'>
           <div className='mt-[37px] text-[30px]'>WHY POLYGON?</div>
-          <div className='mt-[22px] text-[20px]'>The Polygon Network’s three core upsides are;
-            Capable of fully benefiting from Ethereum’s network effects
-            Inherently more secure
-            It is more open, yet powerful enough</div>
+          <div className='mt-[22px] text-[18px]'>The Polygon platform operates using the Ethereum blockchain and connects Ethereum-based projects. Using the Polygon platform increases the flexibility, scalability, and sovereignty of a the project while still affording the security, interoperability, and structural benefits of the Ethereum blockchain</div>
         </div>
       </div >
       <div className='text-center w-full items-center justify-center'>

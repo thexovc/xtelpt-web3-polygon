@@ -3,7 +3,7 @@ import Header from '../components/home/header'
 import Host from '../components/hosts/Host'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import Call from '../components/call/Call'
+import Call from '../components/Call'
 
 
 const call = () => {

@@ -1,4 +1,8 @@
 /**
+ *Submitted for verification at polygonscan.com on 2022-11-16
+*/
+
+/**
  *Submitted for verification at polygonscan.com on 2022-11-12
 */
 
@@ -167,7 +171,7 @@ contract XTELPT  {
      * @dev This function `createSchedule` allows only the Host to call it hence the `OnlyHost` modifier
      * after which a Host can create a meeting with some parameters like time and fee needed
      */
-    function createSchedule(uint256 _start, uint256 _end, uint256 _fee, string memory _desc) public onlyHost {
+    function createSchedule(uint256 _start, uint256 _end, string memory _desc) public onlyHost {
        
         meeting memory NewMeeting;
         NewMeeting.host = payable(msg.sender);
@@ -175,7 +179,7 @@ contract XTELPT  {
         NewMeeting.desc = _desc;
         NewMeeting.start = _start;
         NewMeeting.index =  meetingIndex;
-        NewMeeting.fee = _fee;
+        NewMeeting.fee = 0;
 
         s_xtelpState[msg.sender] = XTELPState.OPEN;
         Meeting[msg.sender].push(NewMeeting);
@@ -186,9 +190,7 @@ contract XTELPT  {
      * @dev This function `joinMeeting` allows only the User to call it hence the `OnlyUser` modifier
      * after which the meeting ID is specified and the user would be assigned to the meeting
      */
-    function joinMeeting(address _host, uint256 _id) public payable onlyUser {
-        require(msg.value >= Meeting[_host][_id].fee, "Insufficient amount");
-
+    function joinMeeting(address _host, uint256 _id) public onlyUser {
         Meeting[_host][_id].user = payable(msg.sender);
         Meeting[_host][_id].booked = true;
     } 
@@ -216,7 +218,7 @@ contract XTELPT  {
     }
 
     /**
-     * @dev This function `getHelp` allows only the User to call it hence the `OnlyUser` modifier
+     * @dev This function `getHelo` allows only the User to call it hence the `OnlyUser` modifier
      * after which the Campaign ID is specified and the user would be assigned to the Campaign
      */
     function getHelp(uint256 _id) public onlyUser {
@@ -248,21 +250,23 @@ contract XTELPT  {
             for (uint j = 0; j < Meeting[AllAccount[i]].length; j++) { 
                 Meeting[AllAccount[i]][j].completed = true;
                 lastTimeStamp = block.timestamp;
+                Meeting[AllAccount[i]][j].host.transfer(Meeting[AllAccount[i]][j].fee);
             }
         }
-    }
-
-    /**
-     * @dev This function `editCampaign` can only be called by the owner of the smart contract to make changes to th campaign that is still active
-     */
-    function editCampaign(uint256 _id, string memory _name, string memory _desc, string memory _image) public onlyOwner {
-        Campaign[_id].name = _name;
-        Campaign[_id].image = _image;
-        Campaign[_id].desc = _desc;
     }
    
    
     /** Getter Functions */
+
+    function isUser(address addr) public view returns (bool){
+        require(keccak256(abi.encodePacked(UserProfile[addr].role)) == keccak256(abi.encodePacked("User")), "NOT A USER");
+        return true;
+    }
+   
+    function isHost(address addr) public view returns (bool){
+        require(keccak256(abi.encodePacked(UserProfile[addr].role)) == keccak256(abi.encodePacked("Host")), "NOT A USER");
+        return true;
+    }
 
     function meetingNum() public view returns (uint256) {
         return meetingIndex;

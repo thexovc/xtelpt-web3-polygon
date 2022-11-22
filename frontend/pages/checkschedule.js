@@ -55,7 +55,7 @@ const Checkschedule = () => {
     const xtelptContract = new ethers.Contract(xtelptAddress, abi, signer)
 
     try {
-      const joinMeeting = await xtelptContract.joinMeeting(host, id, { value: fee, gasLimit: 7000000 })
+      const joinMeeting = await xtelptContract.joinMeeting(host, id, { value: fee, gasLimit: 5000000 })
       setClose(true)
 
 
@@ -93,7 +93,6 @@ const Checkschedule = () => {
             <svg aria-hidden="true" className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
           </button>
         </div>
-
         <div id="alert-2" className={`flex ${!close2 && "hidden"} p-4 mb-4 bg-blue-100 rounded-lg dark:bg-blue-200`} role="alert">
           <svg aria-hidden="true" className="flex-shrink-0 w-5 h-5 text-blue-700 dark:text-blue-800" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd"></path></svg>
           <span className="sr-only">Info</span>
@@ -109,35 +108,45 @@ const Checkschedule = () => {
       <div className='font-bungee text-[34px] leading-[250px] flex text-white pl-[286px]'>
         <div>Schedules:</div>
       </div>
-
       <div className='place-items-center h-full w-full'>
         {meeting?.map((hostMeeting) => hostMeeting.map((item) =>
         (
           <div key={`${item?.index}`} className='flex justify-center pb-10 w-full '>
-            <div className='bg-[#2D1300] w-1/2 h-full shadow-[0_6px_10px_4px_rgba(0,0,0,0.5)] rounded-[30px] '>
-              <div className='flex justify-between p-6 '>
-                <div className='justify-start pl-6 font-noto font-semibold text-[#817C7C] w-34 text-12'>{moment.unix(item?.start).format("HH:mmA")} - {moment.unix(item?.end).format("HH:mmA")}
+            {item?.completed == false ?
+              <div className='bg-[#2D1300] w-1/2 h-full shadow-[0_6px_10px_4px_rgba(0,0,0,0.5)] rounded-[30px] '>
+                <div className='flex justify-between items-center p-6 '>
+                  <div className='justify-start pl-6 font-noto font-semibold text-[#817C7C] w-34 text-12'>{moment.unix(item?.start).format("HH:mmA")} - {moment.unix(item?.end).format("HH:mmA")}
+                  </div>
+                  <div className='justify-center items-center'><p className='justify-center text-12 text-red-400'>{item?.desc}</p></div>
+                  <div className='justify-center items-center'> <p className='justify-center text-12 text-[#817C7C]'>{ethers.utils.formatEther(item?.fee)} Matic</p></div>
+                  <div className=' items-center pr-7 justify-end'>
+                  {item?.booked == false ? (
+                      <>
+                        {me?.role == "User" ?
+                          <div onClick={() => handleCreate(item?.host, item?.index, item?.fee)} className={`text-white  cursor-pointer font-noto rounded-[10px] h-[40px] w-[120px] text-center font-semibold bg-green-600  py-2 text-[14px]`}>
+                            Book Session
+                          </div>
+                          :
+                          <div className={`text-white disabled:opacity-70 bg-gray-700 font-noto rounded-[10px] h-[40px] w-[120px] text-center font-semibold py-2   text-[14px]`}>
+                            Book Session
+                          </div>
+                        }
+                      </>
+                    ) : (
+
+                      <div className={`text-white disabled:opacity-70 bg-gray-700 font-noto rounded-[10px] h-[40px] w-[120px] text-center font-semibold py-2   text-[14px]`}>
+                        Book Session
+                      </div>
+
+                    )}
+                  </div>
                 </div>
-                <div className='justify-center items-center'><p className='justify-center text-12 text-red-400'>{item?.desc}</p></div>
-                <div className='justify-center items-center'> <p className='justify-center text-12 text-[#817C7C]'>{ethers.utils.formatEther(item?.fee)} Matic</p></div>
-                <div className=' items-center pr-7 justify-end'>
-                  {me?.role == "User" ?
-                    <div onClick={() => handleCreate(item?.host, item?.index, item?.fee)} className={`text-white  cursor-pointer font-noto rounded-[10px] h-[40px] w-[140px] text-center font-semibold bg-green-600  py-2 pl-5  text-[14px]`}>
-                      Book Session
-                    </div>
-                    :
-                    <div className={`text-white disabled:opacity-70 bg-gray-700 font-noto rounded-[10px] h-[40px] w-[140px] text-center font-semibold py-2 pl-5  text-[14px]`}>
-                      Book Session
-                    </div>
-                  }
-                </div></div>
-            </div>
+              </div>
+              : ""
+            }
           </div>
         )
-
         ))}
-
-
       </div>
     </div>
 
@@ -146,3 +155,15 @@ const Checkschedule = () => {
 
 
 export default Checkschedule
+
+
+
+
+
+
+
+
+
+
+
+

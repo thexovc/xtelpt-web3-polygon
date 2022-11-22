@@ -11,7 +11,7 @@ const Profile = () => {
 
 
   return (
-    <div className='bg-hero bg-no-repeat bg-right grid place-items-center h-screen w-full'>
+    <div className='grid place-items-center h-screen w-full'>
       <div className='flex justify-center mb-10 w-full '>
         <div className='bg-[#2D1300] w-1/3 h-90 shadow-[0_6px_10px_4px_rgba(0,0,0,0.5)] rounded-[30px] '>
           <div className='grid place-items-center mt-6 w-full'>

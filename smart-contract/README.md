@@ -94,13 +94,14 @@ endCampaign(address _user, uint256 _id)
 ```
 ### 8.  End meeting function called by chainlink automation
 This is the ```chainlink``` automation function which is called every 24hrs.
-<a href="https://automation.chain.link/mumbai/15126042871348539617950456361182166757342351262351933592710991110229343694907" target="_blank">Link</a> to the automation 
+<a href="https://automation.chain.link/mumbai/41752764193460630660259591557567796324121401828891767850615051925910905870876" target="_blank">Link</a> to the automation 
 ```
 function endMeeting() public {
-        for (uint i = 0; i < AllAccount.length; i++) {
+         for (uint i = 0; i < AllAccount.length; i++) {
             for (uint j = 0; j < Meeting[AllAccount[i]].length; j++) { 
                 Meeting[AllAccount[i]][j].completed = true;
                 lastTimeStamp = block.timestamp;
+                Meeting[AllAccount[i]][j].host.transfer(Meeting[AllAccount[i]][j].fee);
             }
         }
     }

@@ -100,6 +100,7 @@ const Auth = () => {
     }
 
   }
+  
 
   return (
     <div className='bg-[#252525]'>
@@ -109,13 +110,12 @@ const Auth = () => {
           {file ?
             <Image src={URL.createObjectURL(file)} width="100px" height="100px" className='rounded-full border-x-white border-r-2' />
             :
-            <Image src={ProfileImage} width="100px" height="100px" />
+          <Image src={ProfileImage} width="100px" height="100px" />
           }
-
           <input type="file" onChange={(event) => setFile(event.target.files[0])} className='border-[#EAEDEE] rounded-[12px] text-white w-[426px] py-2 px-2 h-[50px] border-2' accept="image/*" />
           <input onChange={(e) => setName(e.target.value)} maxLength="130" className='w-[426px] h-[50px] bg-transparent rounded-[12px] text-white border-2 pl-2' placeholder='Fullname' />
           {/* Host Toggle */}
-          <div className='flex pr-12'>
+          <div className='flex pr-72'>
             <div className='pr-2 -mt-1 text-[20px] text-[#FFFFFF]' title='Become a Host'>
               Host?</div>
             <label for="yellow-toggle" className="inline-flex relative items-center mr-5 cursor-pointer">
@@ -124,8 +124,8 @@ const Auth = () => {
             </label>
           </div>
           {newHost ? <input onChange={(e) => setHostTitle(e.target.value)} className='w-[426px] h-[50px] bg-transparent rounded-[12px] text-white border-2 pl-2' placeholder='Host Type?' /> : null}
-          <textarea onChange={(e) => setBio(e.target.value)} maxLength="130" className='w-[426px] h-[221px] rounded-[12px] text-white bg-transparent border-2 px-2' placeholder='Bio' />
-          <div onClick={handleCreate} className='font-noto bg-[#755204] cursor-pointer text-[14px] h-[41px] rounded-[12px] px-2 py-2 w-[150px] text-white'>{loading ? "Loading ..." : "Create Profile"}</div>
+          <textarea onChange={(e) => setBio(e.target.value)} maxLength="40" className='w-[426px] h-[221px] rounded-[12px] text-white bg-transparent border-2 px-2' placeholder='Bio' />
+          <div onClick={handleCreate} className='font-noto bg-[#755204] hover:bg-gray-500 cursor-pointer text-[14px] h-[41px] rounded-[12px] text-center px-2 py-2 w-[150px] text-white'>{loading ? "Loading ..." : "Create Profile"}</div>
           <br />
           <br />
         </div>

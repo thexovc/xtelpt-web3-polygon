@@ -1,7 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
-import Message from '../components/call/Message';
+import Message from '../components/Message';
 import { BsMicFill, BsFillChatLeftFill } from 'react-icons/bs'
 
 const customStyles = {

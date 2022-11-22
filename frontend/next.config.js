@@ -6,6 +6,6 @@ module.exports = withTM({
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ['gateway.pinata.cloud'],
+    domains: ['gateway.pinata.cloud', 'ipfs.io'],
   },
 });

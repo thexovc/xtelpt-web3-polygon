@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import { abi } from '../constants'
+import { abi, nftAbi } from '../constants'
 import { ethers } from 'ethers'
 
 export const XContext = createContext()
@@ -13,7 +13,8 @@ export const XProvider = ({ children }) => {
 
   const router = useRouter()
 
-  const xtelptAddress = "0x3C8472f1934f9a09c55041f325aBE528AfCb1388"
+  const xtelptAddress = "0x7Ecf99Aa766083096c5B9f237BD16B7177da0158"
+  const nftAddress = "0x6fA103f522D0a8BFb56424b27A5E1314E4458829"
 
 
   useEffect(() => {
@@ -121,6 +122,8 @@ export const XProvider = ({ children }) => {
         connectWallet,
         setAppStatus,
         xtelptAddress,
+        nftAddress,
+        nftAbi,
         abi,
         me
       }}

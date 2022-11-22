@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
-import NewNotification from '../components/call/NewNotification';
+import NewNotification from '../components/NewNotification';
 
 const customStyles = {
   overlay: {

@@ -52,13 +52,12 @@ const Profile = () => {
               <div className='w-5 pl-2 h-5 -mt-1'>
                 <Image src={Ellipse} height={5} width={5} />
               </div>
-
-              <div className='text-white text-10'>{host?.hostTitle}</div>
-
+              {host?.role == "Host" && (
+                <div className='text-white text-10'>{host?.hostTitle}</div>
+              )}
             </div>
             <div className='font-noto text-12 mt-1 text-[#817C7C]'>{host?.bio}</div>
             <div className='flex items-center w-full justify-center mt-[8px] cursor-pointer'>
-
 
               <div
                 onClick={() => router.push({

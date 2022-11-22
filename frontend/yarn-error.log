@@ -1,8 +1,8 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add @thirdweb-dev/react
+  C:\Program Files\nodejs\node.exe C:\Users\A-JO3L\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js
 
 PATH: 
-  C:\Users\HP\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\HP\bin;C:\Program Files (x86)\VMware\VMware Player\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\xampp\php;C:\ProgramData\ComposerSetup\bin;C:\Program Files\Git\cmd;C:\Program Files\nodejs;C:\ProgramData\chocolatey\bin;C:\Program Files (x86)\Yarn\bin;C:\Users\HP\AppData\Local\Programs\Python\Python310\Scripts;C:\Users\HP\AppData\Local\Programs\Python\Python310;%USERPROFILE%\AppData\Local\Microsoft\WindowsApps;C:\Users\HP\AppData\Local\Programs\Microsoft VS Code\bin;%PyCharm Community Edition%;C:\Users\HP\AppData\Roaming\Composer\vendor\bin;C:\xampp\mysql\bin;C:\Users\HP\AppData\Local\Programs\MiKTeX\miktex\bin\x64;C:\Users\HP\AppData\Local\Programs\Hyper\resources\bin;C:\Program Files\heroku\bin;C:\Users\HP\AppData\Roaming\npm;C:\src\flutter\bin;%ANDROID_HOME%\tools;%ANDROID_HOME%\platform-tools;C:\Users\HP\AppData\Local\Yarn\bin;C:\Exercism;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
+  C:\Users\A-JO3L\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\A-JO3L\bin;C:\Program Files\AdoptOpenJDK\jre-11.0.7.10-hotspot\bin;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files\Git\cmd;C:\Program Files\nodejs;C:\ProgramData\chocolatey\bin;C:\HashiCorp\Vagrant\bin;C:\Users\A-JO3L\AppData\Local\Microsoft\WindowsApps;C:\Users\A-JO3L\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\JetBrains\PyCharm 2021.3.2\bin;C:\Users\A-JO3L\AppData\Roaming\npm;C:\Users\A-JO3L\AppData\Local\GitHubDesktop\bin;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
 
 Yarn version: 
   1.22.19
@@ -15,16 +15,16 @@ Platform:
 
 Trace: 
   Invariant Violation: Commit hash required
-      at invariant (C:\Program Files (x86)\Yarn\lib\cli.js:2318:15)
-      at GitFetcher.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:89316:7)
+      at invariant (C:\Users\A-JO3L\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:2318:15)
+      at GitFetcher.<anonymous> (C:\Users\A-JO3L\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:89316:7)
       at Generator.next (<anonymous>)
-      at step (C:\Program Files (x86)\Yarn\lib\cli.js:310:30)
-      at C:\Program Files (x86)\Yarn\lib\cli.js:328:14
+      at step (C:\Users\A-JO3L\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:310:30)
+      at C:\Users\A-JO3L\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:328:14
       at new Promise (<anonymous>)
-      at new F (C:\Program Files (x86)\Yarn\lib\cli.js:5305:28)
-      at GitFetcher.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:307:12)
-      at GitFetcher.fetchFromExternal (C:\Program Files (x86)\Yarn\lib\cli.js:89334:20)
-      at C:\Program Files (x86)\Yarn\lib\cli.js:89484:21
+      at new F (C:\Users\A-JO3L\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:5305:28)
+      at GitFetcher.<anonymous> (C:\Users\A-JO3L\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:307:12)
+      at GitFetcher.fetchFromExternal (C:\Users\A-JO3L\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:89334:20)
+      at C:\Users\A-JO3L\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:89484:21
 
 npm manifest: 
   {

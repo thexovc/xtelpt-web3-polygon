@@ -10,7 +10,7 @@ const InitAccount = () => {
     const { currentAccount, me } = useContext(XContext)
     const router = useRouter()
   return (
-    <div onClick={() => router.push('/auth')} className='bg-[#A77300] flex  px-3 py-2 font-noto cursor-pointer font-semibold  mt-[57px] w-[120px] h-[40px] text-center rounded-[30px]'>
+    <div onClick={() => router.push('/auth')} className='bg-[#A77300] flex hover:bg-gray-500 px-3 py-2 font-noto cursor-pointer font-semibold  mt-[57px] w-[120px] h-[40px] text-center rounded-[10px]'>
     Initialize</div>
   )
 }
